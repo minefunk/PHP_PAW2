@@ -2,3 +2,4 @@ KaklKr - Dorobienie kalkulatora kredytowego (podać kwotę, ile lat i oprocentow
 
 KaklKr_ochr - Dorobienie ochrony dla kalkulatora kredytowego
 
+php03 - smarty
