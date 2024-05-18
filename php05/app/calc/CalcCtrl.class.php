@@ -7,10 +7,7 @@ require_once $conf->root_path.'../Messages.class.php';
 require_once $conf->root_path.'/app/calc/CalcForm.class.php';
 require_once $conf->root_path.'/app/calc/CalcResult.class.php';
 
-/** Kontroler kalkulatora
- * @author Przemoprosław Kudłacik
- *
- */
+
 class CalcCtrl {
 
 	private $msgs;   
@@ -28,19 +25,14 @@ class CalcCtrl {
 		$this->hide_intro = false;
 	}
 	
-	/** 
-	 * Pobranie parametrów
-	 */
+	
 	public function getParams(){
 		$this->form->kwota = isset($_REQUEST ['kwota']) ? $_REQUEST ['kwota'] : null;
 		$this->form->opro = isset($_REQUEST ['opro']) ? $_REQUEST ['opro'] : null;
 		$this->form->czas = isset($_REQUEST ['czas']) ? $_REQUEST ['czas'] : null;
 	}
 	
-	/** 
-	 * Walidacja parametrów
-	 * @return true jeśli brak błedów, false w przeciwnoprom wopropadku 
-	 */
+	
 	public function validate() {
 		
 		if (! (isset ( $this->form->kwota ) && isset ( $this->form->opro ) && isset ( $this->form->czas ))) {
@@ -79,9 +71,7 @@ class CalcCtrl {
 		return ! $this->msgs->isError();
 	}
 	
-	/** 
-	 * Pobranie wartości, walidacja, obliczenie i woproświetlenie
-	 */
+	
 	public function process(){
 
 		$this->getparams();
@@ -109,9 +99,7 @@ class CalcCtrl {
 	}
 	
 	
-	/**
-	 * Woprogenerowanie widoku
-	 */
+	
 	public function generateView(){
 		global $conf;
 		
