@@ -7,31 +7,24 @@ require_once 'CalcResult.class.php';
 
 class CalcCtrl {
 
-	private $form;   //dane formularza (do obliczeń i dla widoku)
-	private $result; //inne dane dla widoku
+	private $form;   
+	private $result;
 
-	/** 
-	 * Konstruktor - inicjalizacja właściwości
-	 */
+	
 	public function __construct(){
-		//stworzenie potrzebnych obiektów
+		
 		$this->form = new CalcForm();
 		$this->result = new CalcResult();
 	}
 	
-	/** 
-	 * Pobranie parametrów
-	 */
+	
 	public function getParams(){
 		$this->form->kwota = getFromRequest('kwota');
 		$this->form->opro = getFromRequest('opro');
 		$this->form->czas = getFromRequest('czas');
 	}
 	
-	/** 
-	 * Walidacja parametrów
-	 * @return true jeśli brak błedów, false w przeciwnoprom wopropadku 
-	 */
+	
 	public function validate() {
 		
 		if (! (isset ( $this->form->kwota ) && isset ( $this->form->opro ) && isset ( $this->form->czas ))) {
@@ -70,9 +63,7 @@ class CalcCtrl {
 		return ! $this->msgs->isError();
 	}
 	
-	/** 
-	 * Pobranie wartości, walidacja, obliczenie i woproświetlenie
-	 */
+
 	public function process(){
 
 		$this->getParams();
@@ -100,9 +91,7 @@ class CalcCtrl {
 	}
 	
 	
-	/**
-	 * Woprogenerowanie widoku
-	 */
+	
 	public function generateView(){
 		getSmarty()->assign('page_title','Przykład 05a');
 		getSmarty()->assign('page_description','Aplikacja z jednym "punktem wejścia". Zmiana w postaci nowej struktury foderów, skryptu inicjalizacji oraz pomocniczych funkcji.');
